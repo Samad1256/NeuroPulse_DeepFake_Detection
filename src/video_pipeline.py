@@ -4,7 +4,9 @@ Use Case 2: Video Deepfake Detection — Feature Extraction Pipeline
 Processes video files (real/fake), extracts 35 rPPG features per video,
 and saves the feature matrix + labels as .npy / .csv for ML training.
 
-Designed for Kaggle dataset at: /kaggle/input/face-dataset-dip/{real, deepfake}
+Kaggle dataset at:
+  /kaggle/input/datasets/likhithvasireddy/deepfake-video-dataset-dip/
+  content/drive/MyDrive/face_dataset_dip/{real_videos, deepfake_videos}
 """
 import os
 import sys
