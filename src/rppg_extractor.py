@@ -10,12 +10,13 @@ from collections import deque
 
 # ─── rPPG Extraction Methods ──────────────────────────────────────
 
-def extract_green(rgb_mean):
+def extract_green(rgb_mean, fs=30):
     """
     GREEN channel method (Verkruysse et al., 2008).
     Simply uses the green channel as BVP proxy.
     Args:
         rgb_mean: (N, 3) array of mean R, G, B per frame
+        fs: sampling rate (unused, for API compatibility)
     Returns:
         bvp: (N,) green channel trace
     """
@@ -245,7 +246,7 @@ class SignalBuffer:
         signals = []
         for buf in [self.rgb_forehead, self.rgb_left_cheek, self.rgb_right_cheek]:
             rgb_array = np.array(list(buf))
-            raw_bvp = extract_fn(rgb_array) if self.method != "GREEN" else extract_fn(rgb_array)
+            raw_bvp = extract_fn(rgb_array, self.fs)
             # Detrend
             bvp = detrend_signal(raw_bvp)
             # Bandpass filter
