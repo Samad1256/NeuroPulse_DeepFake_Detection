@@ -47,4 +47,5 @@ jobs:
             --region ${{ env.REGION }} \
             --allow-unauthenticated \
             --port 8080 \
+            --service-account neuropulse@nirbhay-488421.iam.gserviceaccount.com \
             --quiet
